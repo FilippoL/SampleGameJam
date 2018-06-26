@@ -3,20 +3,43 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class InputBuffer : MonoBehaviour {
+    
+    /// <summary>
+    /// Max smashing button count
+    /// </summary>
     [SerializeField]
     private float MaxCounter;
+
+    /// <summary>
+    /// Max time spent smashing
+    /// </summary>
     [SerializeField]
     private float MaxTimeout;
+
+    /// <summary>
+    /// Smashed button counter
+    /// </summary>
     [SerializeField]
     private float SmashCounter;
+
+    /// <summary>
+    /// Time lapsed between states
+    /// </summary>
     [SerializeField]
     private float Overtime;
+
+    /// <summary>
+    /// Cooldown timer
+    /// </summary>
     [SerializeField]
     private bool Cooldown;
 
     public float Power;
     public float CooldownTime;
 
+    /// <summary>
+    /// Goat states 
+    /// </summary>
     IEnumerator _CurrentState;
     IEnumerator _NextState;
 
@@ -34,11 +57,13 @@ public class InputBuffer : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
+        // Update Powerbar
         var powerBar = GetComponent<PowerBarScript>();
         powerBar.Set(SmashCounter / MaxCounter);
 
         if (Input.GetKeyDown("space") && !Cooldown)
         {
+            // Initiate button smashing
             SmashCounter += Power * Time.deltaTime;
             _NextState = SMASHING();
         }
@@ -64,6 +89,10 @@ public class InputBuffer : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// Cool down state (impossible to charge)
+    /// </summary>
+    /// <returns></returns>
     IEnumerator COOLDOWN()
     {
         _NextState = null;
@@ -84,6 +113,10 @@ public class InputBuffer : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// Charging coorutine and timeout
+    /// </summary>
+    /// <returns></returns>
     IEnumerator SMASHING()
     {
         _NextState = null;
