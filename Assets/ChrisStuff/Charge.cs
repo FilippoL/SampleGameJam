@@ -29,7 +29,7 @@ public class Charge : MonoBehaviour {
     /// <summary>
     ///     The Target Game Object;
     /// </summary>
-    [SerializeField]private GameObject m_tObject;
+    private GameObject m_tObject;
 
     public bool     m_isChargeFinished;
     public float    m_force;
@@ -54,25 +54,42 @@ public class Charge : MonoBehaviour {
     // Use this for initialization
     void Start() {
         m_transform = GetComponent<Transform>();
-        m_direction = (m_tObject.GetComponent<Transform>().position - m_transform.position).normalized;
+        if(m_tObject != null)
+        {
+            m_direction = (m_tObject.GetComponent<Transform>().position - m_transform.position).normalized;
+        }
+
+        GetComponent<Animator>().SetBool("startCharge", true);
+
         m_rBody = GetComponent<Rigidbody>();
         m_isChargeFinished = false;
+        m_tObject = null;
     }
 
     // Update is called once per frame
     void Update() {
-        m_direction = (m_tObject.GetComponent<Transform>().position - m_transform.position).normalized;
+        if (m_tObject != null)
+        {
 
-        m_rBody.AddForce(m_direction * m_force);
+            m_direction = (m_tObject.GetComponent<Transform>().position - m_transform.position).normalized;
+            m_rBody.AddForce(m_direction * m_force);
+            GetComponent<Animator>().SetBool("startRunning", true);
+        }
+
 
     }
 
     void OnCollisionEnter(Collision collision)
     {
-        
+        if (m_tObject == null)
+        {
+            return;
+        }
         float enemyForce = m_tObject.GetComponent<Charge>().m_force;
         float explosionForce = (m_force + enemyForce);
-        
+
+        GetComponent<Animator>().SetBool("isPushing", true);
+
 
         Rigidbody m_tBody = m_tObject.GetComponent<Rigidbody>();
 

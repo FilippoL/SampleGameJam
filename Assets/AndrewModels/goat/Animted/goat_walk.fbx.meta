@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d1b0f83d2495544d79f595c238e2e68e
+guid: 541fbd375cc32401c94071653a388301
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
@@ -113,7 +113,7 @@ ModelImporter:
     bakeSimulation: 0
     resampleCurves: 1
     optimizeGameObjects: 0
-    motionNodeName: goatMain
+    motionNodeName: 
     rigImportErrors: 
     rigImportWarnings: 
     animationImportErrors: 
