@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class PowerBarScript : MonoBehaviour {
 
+    /// <summary>
+    /// The Class can be applied without a canvas to render in, 
+    /// Just drag and drop on a camera-owning actor
+    /// TODO: 
+    /// Render texture in 3d using 
+    /// </summary>
+
     [SerializeField] private double m_completeness;
     [SerializeField] private Texture2D m_progress_bar_img;
     [SerializeField] private Texture2D m_background_progress_bar_img;

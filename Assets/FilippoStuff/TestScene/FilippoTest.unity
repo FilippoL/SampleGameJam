@@ -346,28 +346,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!1 &918957904 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1303646569078340, guid: ea632d13297630d408ae668eaf888538,
-    type: 2}
-  m_PrefabInternal: {fileID: 1293448551}
---- !u!114 &918957908
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 918957904}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96cbb23a8c6bacb48997d1ba099040f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_completeness: 0
-  m_progress_bar_img: {fileID: 2800000, guid: 1ad9f4af6597a4942804ec0b56605da1, type: 3}
-  m_background_progress_bar_img: {fileID: 2800000, guid: 1d11f5f441d1ec444a2a4beeb6f66cb4,
-    type: 3}
-  m_position: {x: 20, y: 40}
-  m_size: {x: 500, y: 250}
 --- !u!1001 &1293448551
 Prefab:
   m_ObjectHideFlags: 0
@@ -407,11 +385,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 33526929179233564, guid: ea632d13297630d408ae668eaf888538,
-        type: 2}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ea632d13297630d408ae668eaf888538, type: 2}
   m_IsPrefabParent: 0

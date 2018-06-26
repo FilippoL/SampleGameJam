@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4350772284378590}
   - component: {fileID: 23346283804795238}
   - component: {fileID: 33526929179233564}
+  - component: {fileID: 114362875096080002}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -35,7 +36,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1303646569078340}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.33, y: 1.77, z: -5.98}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -82,4 +83,21 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1303646569078340}
-  m_Mesh: {fileID: 4300000, guid: 52d86aca10565894a9dcd2fe633d1dd0, type: 3}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &114362875096080002
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1303646569078340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96cbb23a8c6bacb48997d1ba099040f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_completeness: 0
+  m_progress_bar_img: {fileID: 2800000, guid: 1ad9f4af6597a4942804ec0b56605da1, type: 3}
+  m_background_progress_bar_img: {fileID: 2800000, guid: 1d11f5f441d1ec444a2a4beeb6f66cb4,
+    type: 3}
+  m_position: {x: 20, y: 40}
+  m_size: {x: 500, y: 250}
