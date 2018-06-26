@@ -226,11 +226,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_completeness: 0
-  m_progress_bar_img: {fileID: 10300, guid: 0000000000000000f000000000000000, type: 0}
-  m_background_progress_bar_img: {fileID: 10904, guid: 0000000000000000f000000000000000,
-    type: 0}
-  m_position: {x: 200, y: 0}
-  m_size: {x: 200, y: 300}
+  m_progress_bar_img: {fileID: 2800000, guid: 1ad9f4af6597a4942804ec0b56605da1, type: 3}
+  m_background_progress_bar_img: {fileID: 2800000, guid: 1d11f5f441d1ec444a2a4beeb6f66cb4,
+    type: 3}
+  m_position: {x: 50, y: 50}
+  m_size: {x: 200, y: 150}
 --- !u!114 &445172677
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -248,6 +248,7 @@ MonoBehaviour:
   Overtime: 0
   Cooldown: 0
   Power: 0
+  CooldownTime: 0
 --- !u!65 &445172678
 BoxCollider:
   m_ObjectHideFlags: 0
