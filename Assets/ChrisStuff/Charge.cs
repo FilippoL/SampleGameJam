@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class GoatCharge : MonoBehaviour {
+public class Charge : MonoBehaviour {
 
     /// <summary>
     ///     RigidBody Of The Goat.
@@ -24,19 +24,32 @@ public class GoatCharge : MonoBehaviour {
     ///     Direction Vector of the Object
     /// </summary>
     private Vector3 m_direction;
-    
+
 
     /// <summary>
     ///     The Target Game Object;
     /// </summary>
-    public GameObject m_tObject;
+    [SerializeField]private GameObject m_tObject;
 
     public bool     m_isChargeFinished;
     public float    m_force;
-    private float   m_damping = -0.95f;
+    private float   m_damping = -4.0f;
     public float    m_explosionModifier = 4;
 
-    
+    public GameObject TargetObject
+    {
+        get
+        {
+            return m_tObject;
+        }
+
+        set
+        {
+            m_tObject = value;
+        }
+    }
+
+
 
     // Use this for initialization
     void Start() {
@@ -57,7 +70,7 @@ public class GoatCharge : MonoBehaviour {
     void OnCollisionEnter(Collision collision)
     {
         
-        float enemyForce = m_tObject.GetComponent<GoatCharge>().m_force;
+        float enemyForce = m_tObject.GetComponent<Charge>().m_force;
         float explosionForce = (m_force + enemyForce);
         
 
