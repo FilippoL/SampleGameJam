@@ -171,6 +171,21 @@ Prefab:
       propertyPath: force
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 114042903590054974, guid: e9fe0196fdb64484f91fc977778ee116,
+        type: 2}
+      propertyPath: m_force
+      value: 1.11
+      objectReference: {fileID: 0}
+    - target: {fileID: 114042903590054974, guid: e9fe0196fdb64484f91fc977778ee116,
+        type: 2}
+      propertyPath: m_damping
+      value: -0.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 114042903590054974, guid: e9fe0196fdb64484f91fc977778ee116,
+        type: 2}
+      propertyPath: m_explosionModifier
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e9fe0196fdb64484f91fc977778ee116, type: 2}
   m_IsPrefabParent: 0
@@ -306,6 +321,21 @@ Prefab:
     - target: {fileID: 114042903590054974, guid: e9fe0196fdb64484f91fc977778ee116,
         type: 2}
       propertyPath: force
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114042903590054974, guid: e9fe0196fdb64484f91fc977778ee116,
+        type: 2}
+      propertyPath: m_force
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114042903590054974, guid: e9fe0196fdb64484f91fc977778ee116,
+        type: 2}
+      propertyPath: m_damping
+      value: -0.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 114042903590054974, guid: e9fe0196fdb64484f91fc977778ee116,
+        type: 2}
+      propertyPath: m_explosionModifier
       value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
