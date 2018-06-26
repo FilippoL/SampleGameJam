@@ -15,7 +15,7 @@ public class InputBuffer : MonoBehaviour {
     private bool Cooldown;
 
     public float Power;
-   
+    public float CooldownTime;
 
     IEnumerator _CurrentState;
     IEnumerator _NextState;
@@ -25,14 +25,18 @@ public class InputBuffer : MonoBehaviour {
         _CurrentState = IDLE();
         StartCoroutine(STATEMACHINE());
 
-        MaxCounter = 30.0f;
+        MaxCounter = 10.0f;
         MaxTimeout = 3.0f;
+        CooldownTime = 1.0f;
         Power = 25.0f;
     }
 
 	// Update is called once per frame
 	void Update ()
     {
+        var powerBar = GetComponent<PowerBarScript>();
+        powerBar.Set(SmashCounter / MaxCounter);
+
         if (Input.GetKeyDown("space") && !Cooldown)
         {
             SmashCounter += Power * Time.deltaTime;
@@ -69,7 +73,7 @@ public class InputBuffer : MonoBehaviour {
             Overtime += Time.deltaTime;
             Cooldown = true;
 
-            if (Overtime > MaxTimeout)
+            if (Overtime > CooldownTime)
             {
                 _NextState = IDLE();
                 Overtime = 0.0f;
