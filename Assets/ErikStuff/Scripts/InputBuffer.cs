@@ -36,6 +36,7 @@ public class InputBuffer : MonoBehaviour {
 
     public float Power;
     public float CooldownTime;
+    public float AttackTime;
 
     /// <summary>
     /// Goat states 
@@ -43,19 +44,41 @@ public class InputBuffer : MonoBehaviour {
     IEnumerator _CurrentState;
     IEnumerator _NextState;
 
+    private int Clash;
+
+    Charge scriptCharge;
+    HeadButt scriptHeadbutt;
+    Animator animator;
+
 	// Use this for initialization
 	void Start () {
+
+        scriptCharge = GetComponent<Charge>();
+        scriptHeadbutt = GetComponent<HeadButt>();
+        animator = GetComponent<Animator>();
+
         _CurrentState = IDLE();
         StartCoroutine(STATEMACHINE());
 
         MaxCounter = 10.0f;
         MaxTimeout = 3.0f;
         CooldownTime = 1.0f;
+        AttackTime = 1.0f;
         Power = 25.0f;
+        Clash = 0;
     }
 
-	// Update is called once per frame
-	void Update ()
+    private void OnCollisionEnter(Collision collision)
+    {
+        Clash++;
+    }
+    private void OnCollisionExit(Collision collision)
+    {
+        Clash = 0;
+    }
+
+    // Update is called once per frame
+    void Update ()
     {
         // Update Powerbar
         var powerBar = GetComponent<PowerBarScript>();
@@ -64,6 +87,11 @@ public class InputBuffer : MonoBehaviour {
         if (Input.GetKeyDown("space") && !Cooldown)
         {
             // Initiate button smashing
+            if (scriptCharge)
+            {
+                scriptCharge.enabled = true;
+            }
+
             SmashCounter += Power * Time.deltaTime;
             _NextState = SMASHING();
         }
@@ -102,6 +130,10 @@ public class InputBuffer : MonoBehaviour {
             Overtime += Time.deltaTime;
             Cooldown = true;
 
+            if (Overtime > AttackTime)
+            {
+                scriptHeadbutt.m_enable = true;
+            }
             if (Overtime > CooldownTime)
             {
                 _NextState = IDLE();
@@ -136,9 +168,34 @@ public class InputBuffer : MonoBehaviour {
             }
             if (Overtime > MaxTimeout)
             {
+                if (Clash == 0)
+                {
+                    if (scriptCharge)
+                    {
+                        scriptCharge.m_force = SmashCounter;
+                    }
+                    if (animator)
+                    {
+                        animator.SetBool("startRunning", true);
+                    }
+                }
+                if (Clash > 0)
+                {
+                    if (scriptCharge)
+                    {
+                        scriptCharge.m_force = SmashCounter;
+                    }
+                    if (scriptHeadbutt)
+                    {
+                        scriptHeadbutt.enabled = true;
+                        scriptCharge.enabled = false;
+                    }
+                }
+
                 SmashCounter = 0.0f;
                 Overtime = 0.0f;
                 _NextState = COOLDOWN();
+
             }
 
             yield return null;

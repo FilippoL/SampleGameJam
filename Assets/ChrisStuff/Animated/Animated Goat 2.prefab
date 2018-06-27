@@ -1420,7 +1420,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1173925008823372}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3ede64ed3a303864099bf47bd399c173, type: 3}
   m_Name: 
@@ -1445,6 +1445,7 @@ MonoBehaviour:
   Cooldown: 0
   Power: 0
   CooldownTime: 0
+  AttackTime: 0
 --- !u!114 &114700935202033436
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1468,7 +1469,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1173925008823372}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5d4406937c7aa7d43b008dc79397400f, type: 3}
   m_Name: 
