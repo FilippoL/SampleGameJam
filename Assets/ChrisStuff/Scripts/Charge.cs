@@ -82,7 +82,7 @@ public class Charge : MonoBehaviour {
 
     void OnCollisionEnter(Collision collision)
     {
-        if (!m_tObject || m_tObject.CompareTag("Terrain"))
+        if (!m_tObject || collision.gameObject.CompareTag("Terrain"))
         {
             return;
         }
@@ -113,7 +113,7 @@ public class Charge : MonoBehaviour {
 
     private void OnCollisionStay(Collision collision)
     {
-        if (!m_tObject || m_tObject.CompareTag("Terrain"))
+        if (!m_tObject || collision.gameObject.CompareTag("Terrain"))
         {
             return;
         }

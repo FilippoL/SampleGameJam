@@ -16,8 +16,9 @@ public class PowerBarScript : MonoBehaviour {
     [SerializeField] private Texture2D m_background_progress_bar_img;
     [SerializeField] private Vector2 m_position;
     [SerializeField] private Vector2 m_size;
+    [SerializeField] private bool m_fromWidth;
 
-    
+
     /// <summary>
     /// Gets or sets the completeness.
     /// </summary>
@@ -94,6 +95,20 @@ public class PowerBarScript : MonoBehaviour {
             m_size = value;
         }
     }
+
+    public bool FromWidth
+    {
+        get
+        {
+            return m_fromWidth;
+        }
+
+        set
+        {
+            m_fromWidth = value;
+        }
+    }
+
     /// <summary>
     /// Start this instance.
     /// </summary>
@@ -105,29 +120,33 @@ public class PowerBarScript : MonoBehaviour {
 	/// Call this for increasing the value of status bar
 	/// </summary>
 	/// <param name="increase_value">Increasement value.</param>
-	void Increase (float increase_value = 0.5f) {
+	public void Set (float value = 0.0f) {
 
-        m_completeness += increase_value;
+        m_completeness = value;
         //m_progress_bar_img = Sprite.Create(new Texture2D(250,50),new Rect(0.0f, 0.0f, 250, 50), new Vector2(0.5f, 0.5f), 100.0f);
     }   
 
     void Update() {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Increase();
-        }
 
-        m_completeness = Time.time * 0.05;
     }
 
     void OnGUI()
     {
-        GUI.BeginGroup(new Rect(m_position.x, m_position.y, m_size.x, m_size.y));
+        if (m_fromWidth)
+        {
+            
+            GUI.BeginGroup(new Rect(Screen.width - m_position.x - m_size.x , m_position.y, m_size.x, m_size.y));
+        }
+        else
+        {
+            GUI.BeginGroup(new Rect( m_position.x, m_position.y, m_size.x, m_size.y));
+        }
+        
         GUI.DrawTexture(new Rect(0, 0, m_size.x, m_size.y), m_background_progress_bar_img);
  
-            GUI.BeginGroup(new Rect(0, 0, (float)m_completeness * m_size.x, m_size.y));
-            GUI.DrawTexture(new Rect(0, 0, m_size.x, m_size.y), m_progress_bar_img);
-            GUI.EndGroup();
+        GUI.BeginGroup(new Rect(0, 0, (float)m_completeness * m_size.x, m_size.y));
+        GUI.DrawTexture(new Rect(0, 0, m_size.x, m_size.y), m_progress_bar_img);
+        GUI.EndGroup();
 
         GUI.EndGroup();
     }
