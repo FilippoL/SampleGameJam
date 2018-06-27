@@ -44,7 +44,10 @@ public class InputBuffer : MonoBehaviour {
     IEnumerator _CurrentState;
     IEnumerator _NextState;
 
-    private int Clash;
+    private bool onClash;
+    private bool onAttack;
+
+    public List<string> Keyset;
 
     Charge scriptCharge;
     HeadButt scriptHeadbutt;
@@ -60,21 +63,32 @@ public class InputBuffer : MonoBehaviour {
         _CurrentState = IDLE();
         StartCoroutine(STATEMACHINE());
 
-        MaxCounter = 10.0f;
+        MaxCounter = 50.0f;
         MaxTimeout = 3.0f;
         CooldownTime = 1.0f;
         AttackTime = 1.0f;
         Power = 25.0f;
-        Clash = 0;
+        onClash = false;
+        onAttack = false;
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        Clash++;
+        if (collision.gameObject.CompareTag("Terrain"))
+        {
+            return;
+        }
+        onClash = true;
     }
     private void OnCollisionExit(Collision collision)
     {
-        Clash = 0;
+        if (collision.gameObject.CompareTag("Terrain"))
+        {
+            return;
+        }
+        onClash = false;
+        onAttack = false;
+        SmashCounter = 0.0f;
     }
 
     // Update is called once per frame
@@ -84,7 +98,7 @@ public class InputBuffer : MonoBehaviour {
         var powerBar = GetComponent<PowerBarScript>();
         powerBar.Completeness = SmashCounter / MaxCounter;
 
-        if (Input.GetKeyDown("space") && !Cooldown)
+        if ((Input.GetKeyDown(Keyset[0]) || Input.GetKeyDown(Keyset[1])) && !Cooldown && !animator.GetBool("startRunning") && !onAttack)
         {
             // Initiate button smashing
             if (scriptCharge)
@@ -143,10 +157,14 @@ public class InputBuffer : MonoBehaviour {
 
     private void HeadbuttCharge()
     {
-        animator.SetFloat("Force", 0.1f);
+        animator.SetFloat("Force", SmashCounter / 100.0f);
         //scriptHeadbutt.m_enable = true;
     }
-
+    private void ButtHeaded()
+    {
+        animator.SetFloat("Force", SmashCounter / 10.0f);
+        //scriptHeadbutt.m_enable = true;
+    }
     private void HeadbuttContact()
     {
         Debug.Log("Hit");
@@ -165,7 +183,8 @@ public class InputBuffer : MonoBehaviour {
         {
             SmashCounter -= Time.deltaTime;
             Overtime += Time.deltaTime;
-        
+            animator.SetFloat("Force", SmashCounter/5.0f);
+
             if (SmashCounter < 0.0f)
             {
                 SmashCounter = 0.0f;
@@ -176,7 +195,7 @@ public class InputBuffer : MonoBehaviour {
             }
             if (Overtime > MaxTimeout)
             {
-                if (Clash == 0)
+                if (onClash == false)
                 {
                     if (scriptCharge)
                     {
@@ -187,7 +206,7 @@ public class InputBuffer : MonoBehaviour {
                         animator.SetBool("startRunning", true);
                     }
                 }
-                if (Clash > 0)
+                if (onClash == true)
                 {
                     if (scriptCharge)
                     {
@@ -198,10 +217,9 @@ public class InputBuffer : MonoBehaviour {
                         scriptHeadbutt.m_enable = false;
                         scriptHeadbutt.enabled = true;
                         scriptCharge.enabled = false;
+                        onAttack = true;
                     }
                 }
-
-                SmashCounter = 0.0f;
                 Overtime = 0.0f;
                 _NextState = COOLDOWN();
 
