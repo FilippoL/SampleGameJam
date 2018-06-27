@@ -39,7 +39,7 @@ public class Charge : MonoBehaviour {
     private void OnEnable()
     {
         m_transform = GetComponent<Transform>();
-        if (m_tObject != null)
+        if (m_tObject)
         {
             m_direction = (m_tObject.GetComponent<Transform>().position - m_transform.position).normalized;
         }
@@ -53,7 +53,7 @@ public class Charge : MonoBehaviour {
     // Use this for initialization
     void Start() {
         m_transform = GetComponent<Transform>();
-        if(m_tObject != null)
+        if(m_tObject)
         {
             m_direction = (m_tObject.GetComponent<Transform>().position - m_transform.position).normalized;
         }
@@ -82,7 +82,7 @@ public class Charge : MonoBehaviour {
 
     void OnCollisionEnter(Collision collision)
     {
-        if (m_tObject == null)
+        if (!m_tObject)
         {
             return;
         }
@@ -94,6 +94,7 @@ public class Charge : MonoBehaviour {
 
 
         Rigidbody m_tBody = m_tObject.GetComponent<Rigidbody>();
+        m_rBody = GetComponent<Rigidbody>();
 
         Vector2 ratio = new Vector2(m_force / explosionForce, enemyForce / explosionForce);
 
@@ -112,6 +113,7 @@ public class Charge : MonoBehaviour {
 
     private void OnCollisionStay(Collision collision)
     {
+        m_rBody = GetComponent<Rigidbody>();
         if (m_rBody.velocity.magnitude < 0.39f)
         {
             m_isChargeFinished = true;
