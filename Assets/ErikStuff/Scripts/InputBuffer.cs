@@ -130,10 +130,6 @@ public class InputBuffer : MonoBehaviour {
             Overtime += Time.deltaTime;
             Cooldown = true;
 
-            if (Overtime > AttackTime)
-            {
-                scriptHeadbutt.m_enable = true;
-            }
             if (Overtime > CooldownTime)
             {
                 _NextState = IDLE();
@@ -143,6 +139,18 @@ public class InputBuffer : MonoBehaviour {
 
             yield return null;
         }
+    }
+
+    private void HeadbuttCharge()
+    {
+        animator.SetFloat("Force", 0.1f);
+        //scriptHeadbutt.m_enable = true;
+    }
+
+    private void HeadbuttContact()
+    {
+        Debug.Log("Hit");
+        scriptHeadbutt.m_enable = true;
     }
 
     /// <summary>
@@ -187,6 +195,7 @@ public class InputBuffer : MonoBehaviour {
                     }
                     if (scriptHeadbutt)
                     {
+                        scriptHeadbutt.m_enable = false;
                         scriptHeadbutt.enabled = true;
                         scriptCharge.enabled = false;
                     }
