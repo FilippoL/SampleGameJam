@@ -129,8 +129,8 @@ GameObject:
   - component: {fileID: 135465784717219536}
   - component: {fileID: 114751223323215812}
   - component: {fileID: 114082673548876672}
-  - component: {fileID: 114746765729589362}
-  - component: {fileID: 114487122528097310}
+  - component: {fileID: 114326513735021814}
+  - component: {fileID: 114700935202033436}
   m_Layer: 0
   m_Name: Animated Goat 2
   m_TagString: Untagged
@@ -1425,9 +1425,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ede64ed3a303864099bf47bd399c173, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_maxWaitTime: 0
   m_tObject: {fileID: 0}
---- !u!114 &114487122528097310
+  m_enable: 0
+--- !u!114 &114326513735021814
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -1445,7 +1445,7 @@ MonoBehaviour:
   Cooldown: 0
   Power: 0
   CooldownTime: 0
---- !u!114 &114746765729589362
+--- !u!114 &114700935202033436
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -1457,10 +1457,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_completeness: 0
-  m_progress_bar_img: {fileID: 0}
-  m_background_progress_bar_img: {fileID: 0}
+  m_progress_bar_img: {fileID: 2800000, guid: 1ad9f4af6597a4942804ec0b56605da1, type: 3}
+  m_background_progress_bar_img: {fileID: 2800000, guid: 1d11f5f441d1ec444a2a4beeb6f66cb4,
+    type: 3}
   m_position: {x: 0, y: 0}
-  m_size: {x: 0, y: 0}
+  m_size: {x: 200, y: 150}
 --- !u!114 &114751223323215812
 MonoBehaviour:
   m_ObjectHideFlags: 1

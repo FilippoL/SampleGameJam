@@ -549,8 +549,6 @@ GameObject:
   - component: {fileID: 54248140075702548}
   - component: {fileID: 135425726447197664}
   - component: {fileID: 114543034425112976}
-  - component: {fileID: 114230184318853870}
-  - component: {fileID: 114269048617243096}
   m_Layer: 0
   m_Name: Animated Goat
   m_TagString: Untagged
@@ -1413,40 +1411,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &114230184318853870
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1789244755541992}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a44e4ec617269b40956abfd32f6abda, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MaxCounter: 0
-  MaxTimeout: 0
-  SmashCounter: 0
-  Overtime: 0
-  Cooldown: 0
-  Power: 0
-  CooldownTime: 0
---- !u!114 &114269048617243096
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1789244755541992}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96cbb23a8c6bacb48997d1ba099040f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_completeness: 0
-  m_progress_bar_img: {fileID: 0}
-  m_background_progress_bar_img: {fileID: 0}
-  m_position: {x: 0, y: 0}
-  m_size: {x: 0, y: 0}
 --- !u!114 &114543034425112976
 MonoBehaviour:
   m_ObjectHideFlags: 1
