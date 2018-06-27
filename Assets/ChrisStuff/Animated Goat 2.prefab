@@ -128,6 +128,7 @@ GameObject:
   - component: {fileID: 54258973652212258}
   - component: {fileID: 135465784717219536}
   - component: {fileID: 114751223323215812}
+  - component: {fileID: 114082673548876672}
   m_Layer: 0
   m_Name: Animated Goat 2
   m_TagString: Untagged
@@ -1107,7 +1108,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1173925008823372}
   m_LocalRotation: {x: 0, y: -0.7027751, z: 0, w: 0.71141213}
-  m_LocalPosition: {x: -0.03169853, y: 0.92, z: -4.0913167}
+  m_LocalPosition: {x: 5, y: 1, z: 0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4174948461840870}
@@ -1411,6 +1412,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114082673548876672
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1173925008823372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ede64ed3a303864099bf47bd399c173, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_hitForce: 0
+  m_maxWaitTime: 0
+  m_tObject: {fileID: 0}
 --- !u!114 &114751223323215812
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -66,8 +66,6 @@ public class Charge : MonoBehaviour {
                 GetComponent<Animator>().SetBool("startCharge", false);
             }
         }
-
-
     }
 
     void OnCollisionEnter(Collision collision)
