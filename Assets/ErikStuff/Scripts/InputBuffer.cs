@@ -82,7 +82,7 @@ public class InputBuffer : MonoBehaviour {
     {
         // Update Powerbar
         var powerBar = GetComponent<PowerBarScript>();
-        powerBar.Set(SmashCounter / MaxCounter);
+        powerBar.Completeness = SmashCounter / MaxCounter;
 
         if (Input.GetKeyDown("space") && !Cooldown)
         {

@@ -27,7 +27,7 @@ public class PowerBarScript : MonoBehaviour {
 			return m_completeness;
 		}
 		set{
-			m_completeness = value; 
+			m_completeness += value; 
 		}
 	}
 
@@ -105,14 +105,19 @@ public class PowerBarScript : MonoBehaviour {
 	/// Call this for increasing the value of status bar
 	/// </summary>
 	/// <param name="increase_value">Increasement value.</param>
-	public void Set (float value = 0.0f) {
+	void Increase (float increase_value = 0.5f) {
 
-        m_completeness = value;
+        m_completeness += increase_value;
         //m_progress_bar_img = Sprite.Create(new Texture2D(250,50),new Rect(0.0f, 0.0f, 250, 50), new Vector2(0.5f, 0.5f), 100.0f);
     }   
 
     void Update() {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Increase();
+        }
 
+        m_completeness = Time.time * 0.05;
     }
 
     void OnGUI()
