@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class HeadButt : MonoBehaviour {
 
+    private Transform m_transorm;
 
 	// Use this for initialization
 	void Start () {
