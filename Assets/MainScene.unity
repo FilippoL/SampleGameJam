@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1295129901}
-  m_IndirectSpecularColor: {r: 0.29704452, g: 0.63380057, b: 0.9937076, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0.6255328, b: 1.0067366, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -545,6 +545,16 @@ Prefab:
       propertyPath: m_TagString
       value: Moon
       objectReference: {fileID: 0}
+    - target: {fileID: 114955112768084146, guid: 5629e2bf98c07c140a1bc373d9db1562,
+        type: 2}
+      propertyPath: dayTimeMat
+      value: 
+      objectReference: {fileID: 2100000, guid: 2bd8959f5fbd3644aa33af1a155fc147, type: 2}
+    - target: {fileID: 114955112768084146, guid: 5629e2bf98c07c140a1bc373d9db1562,
+        type: 2}
+      propertyPath: nightTimeMat
+      value: 
+      objectReference: {fileID: 2100000, guid: 4c4a70c7c3bd8a64b9a636bd270468a7, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5629e2bf98c07c140a1bc373d9db1562, type: 2}
   m_IsPrefabParent: 0
@@ -604,6 +614,16 @@ Prefab:
       propertyPath: m_TagString
       value: Sun
       objectReference: {fileID: 0}
+    - target: {fileID: 114955112768084146, guid: 5629e2bf98c07c140a1bc373d9db1562,
+        type: 2}
+      propertyPath: dayTimeMat
+      value: 
+      objectReference: {fileID: 2100000, guid: 2bd8959f5fbd3644aa33af1a155fc147, type: 2}
+    - target: {fileID: 114955112768084146, guid: 5629e2bf98c07c140a1bc373d9db1562,
+        type: 2}
+      propertyPath: nightTimeMat
+      value: 
+      objectReference: {fileID: 2100000, guid: 4c4a70c7c3bd8a64b9a636bd270468a7, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5629e2bf98c07c140a1bc373d9db1562, type: 2}
   m_IsPrefabParent: 0
