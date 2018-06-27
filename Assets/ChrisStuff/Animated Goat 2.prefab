@@ -129,6 +129,8 @@ GameObject:
   - component: {fileID: 135465784717219536}
   - component: {fileID: 114751223323215812}
   - component: {fileID: 114082673548876672}
+  - component: {fileID: 114746765729589362}
+  - component: {fileID: 114487122528097310}
   m_Layer: 0
   m_Name: Animated Goat 2
   m_TagString: Untagged
@@ -1423,9 +1425,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ede64ed3a303864099bf47bd399c173, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_hitForce: 0
   m_maxWaitTime: 0
   m_tObject: {fileID: 0}
+--- !u!114 &114487122528097310
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1173925008823372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a44e4ec617269b40956abfd32f6abda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxCounter: 0
+  MaxTimeout: 0
+  SmashCounter: 0
+  Overtime: 0
+  Cooldown: 0
+  Power: 0
+  CooldownTime: 0
+--- !u!114 &114746765729589362
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1173925008823372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96cbb23a8c6bacb48997d1ba099040f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_completeness: 0
+  m_progress_bar_img: {fileID: 0}
+  m_background_progress_bar_img: {fileID: 0}
+  m_position: {x: 0, y: 0}
+  m_size: {x: 0, y: 0}
 --- !u!114 &114751223323215812
 MonoBehaviour:
   m_ObjectHideFlags: 1
