@@ -29,25 +29,12 @@ public class Charge : MonoBehaviour {
     /// <summary>
     ///     The Target Game Object;
     /// </summary>
-    private GameObject m_tObject;
+    public GameObject m_tObject;
 
     public bool     m_isChargeFinished;
     public float    m_force;
     private float   m_damping = -4.0f;
     public float    m_explosionModifier = 4;
-
-    public GameObject TargetObject
-    {
-        get
-        {
-            return m_tObject;
-        }
-
-        set
-        {
-            m_tObject = value;
-        }
-    }
 
 
 
@@ -63,17 +50,21 @@ public class Charge : MonoBehaviour {
 
         m_rBody = GetComponent<Rigidbody>();
         m_isChargeFinished = false;
-        m_tObject = null;
     }
 
     // Update is called once per frame
     void Update() {
-        if (m_tObject != null)
+        if (m_tObject)
         {
+            if(!GetComponent<Animator>().GetBool("startCharge") && GetComponent<Animator>().GetBool("startRunning")){
+                m_direction = (m_tObject.GetComponent<Transform>().position - m_transform.position).normalized;
+                m_rBody.AddForce(m_direction * m_force);
+            }
 
-            m_direction = (m_tObject.GetComponent<Transform>().position - m_transform.position).normalized;
-            m_rBody.AddForce(m_direction * m_force);
-            GetComponent<Animator>().SetBool("startRunning", true);
+            if (GetComponent<Animator>().GetBool("startRunning"))
+            {
+                GetComponent<Animator>().SetBool("startCharge", false);
+            }
         }
 
 
@@ -89,6 +80,7 @@ public class Charge : MonoBehaviour {
         float explosionForce = (m_force + enemyForce);
 
         GetComponent<Animator>().SetBool("isPushing", true);
+        GetComponent<Animator>().SetBool("startRunning", false);
 
 
         Rigidbody m_tBody = m_tObject.GetComponent<Rigidbody>();
