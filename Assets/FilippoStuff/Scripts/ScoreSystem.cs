@@ -49,7 +49,7 @@ public class ScoreSystem : MonoBehaviour
 
     void DrawLine(Vector3 start, Vector3 end, Color color, float duration = 0.2f)
     {
-        /*GameObject myLine = new GameObject();
+        GameObject myLine = new GameObject();
         myLine.transform.position = transform.position;
         myLine.AddComponent<LineRenderer>();
         LineRenderer lr = myLine.GetComponent<LineRenderer>();
@@ -60,7 +60,7 @@ public class ScoreSystem : MonoBehaviour
         lr.endWidth = 5.0f;
         lr.SetPosition(0, start);
         lr.SetPosition(1, new Vector3(transform.position.x, transform.position.y, transform.position.z));
-        Destroy(myLine, duration);*/
+        Destroy(myLine, duration);
     }
 
     void OnDisable()

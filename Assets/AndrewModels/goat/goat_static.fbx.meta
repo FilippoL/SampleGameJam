@@ -1,14 +1,14 @@
 fileFormatVersion: 2
-guid: 2122373037337f24f82fb24c2715b46a
+guid: bca4f2031bd68435581ed886425e0825
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: lambert1
+    2100000: goat_main_mat
     2300000: //RootNode
     3300000: //RootNode
-    4300000: pSphere1
+    4300000: goatMain
   externalObjects: {}
   materials:
     importMaterials: 1
