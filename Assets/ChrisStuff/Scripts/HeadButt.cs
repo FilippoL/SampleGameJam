@@ -8,12 +8,9 @@ public class HeadButt : MonoBehaviour {
     private Rigidbody m_rBody;
     private Rigidbody m_tBody;
     private Vector3 m_direction;
-    
-    public float m_maxWaitTime;
-    private float m_waitTime;
-    private bool m_doDaButt;
 
     public GameObject m_tObject;
+    public bool m_enable;
 
     private void OnEnable()
     {
@@ -23,13 +20,11 @@ public class HeadButt : MonoBehaviour {
             m_direction = (m_tObject.GetComponent<Transform>().position - m_transform.position).normalized;
         }
         m_rBody = GetComponent<Rigidbody>();
-        m_doDaButt = false;
 
         GetComponent<Animator>().SetTrigger("HeadButtTrigger");
         GetComponent<Animator>().SetBool("startCharge", false);
         GetComponent<Animator>().SetBool("isPushing", false);
-
-        this.enabled = false;
+        
     }
 
     // Use this for initialization
@@ -40,7 +35,6 @@ public class HeadButt : MonoBehaviour {
             m_direction = (m_tObject.GetComponent<Transform>().position - m_transform.position).normalized;
         }
         m_rBody = GetComponent<Rigidbody>();
-        m_doDaButt = false;
 
         GetComponent<Animator>().SetTrigger("HeadButtTrigger");
         GetComponent<Animator>().SetBool("isPushing", false);
@@ -53,19 +47,14 @@ public class HeadButt : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        if(m_waitTime > m_maxWaitTime)
-        {
-            m_waitTime = 0;
-            m_doDaButt = true;
-        }
-
-        m_waitTime += Time.deltaTime;
+        DoHeadbuttExplosion(m_enable);
     }
 
-    private void OnCollisionStay(Collision collision)
+    private void DoHeadbuttExplosion(bool enable = true)
     {
-        if (m_doDaButt)
+        if (enable)
         {
+
             Rigidbody m_tBody = m_tObject.GetComponent<Rigidbody>();
             float force = GetComponent<Charge>().m_force + m_tObject.GetComponent<Charge>().m_force;
 
@@ -76,7 +65,7 @@ public class HeadButt : MonoBehaviour {
             GetComponent<Animator>().SetBool("isPushing", false);
 
             this.enabled = false;
-
         }
     }
+
 }
