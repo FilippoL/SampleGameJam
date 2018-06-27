@@ -36,7 +36,19 @@ public class Charge : MonoBehaviour {
     private float   m_damping = -4.0f;
     public float    m_explosionModifier = 4;
 
+    private void OnEnable()
+    {
+        m_transform = GetComponent<Transform>();
+        if (m_tObject != null)
+        {
+            m_direction = (m_tObject.GetComponent<Transform>().position - m_transform.position).normalized;
+        }
 
+        GetComponent<Animator>().SetBool("startCharge", true);
+
+        m_rBody = GetComponent<Rigidbody>();
+        m_isChargeFinished = false;
+    }
 
     // Use this for initialization
     void Start() {
