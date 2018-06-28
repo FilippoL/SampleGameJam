@@ -100,8 +100,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1898879590932606}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 21.3281, y: 1.3486557, z: 6.053383}
+  m_LocalRotation: {x: -0.21248877, y: 0, z: -0, w: 0.97716355}
+  m_LocalPosition: {x: -14.941996, y: -8.9413185, z: -13.264762}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4143360611817638}
@@ -116,8 +116,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1129250681653772}
-  m_LocalRotation: {x: 0.06568898, y: 0.76140463, z: -0.07812654, w: 0.64019084}
-  m_LocalPosition: {x: -33.4281, y: 3.351344, z: 2.8466167}
+  m_LocalRotation: {x: 0.18054391, y: -0.35141766, z: 0.06926222, w: 0.9160307}
+  m_LocalPosition: {x: 15.02, y: 6.8580036, z: 4.4069996}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4827383853061824}
@@ -130,8 +130,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1087152473805986}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -16.3281, y: -0.24865568, z: -0.1333828}
+  m_LocalRotation: {x: 0.013178093, y: 0.40977666, z: -0.01398824, w: -0.9119834}
+  m_LocalPosition: {x: 2.5889597, y: -0.764585, z: 18.224356}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4067898700454350}
@@ -143,8 +143,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1252628350264240}
-  m_LocalRotation: {x: 0.06568898, y: 0.76140463, z: -0.07812654, w: 0.64019084}
-  m_LocalPosition: {x: -33.4281, y: 3.351344, z: 2.8466167}
+  m_LocalRotation: {x: 0.18054391, y: -0.35141766, z: 0.06926222, w: 0.9160307}
+  m_LocalPosition: {x: 15.02, y: 6.8580036, z: 4.4069996}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4067898700454350}
@@ -180,8 +180,8 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.1
-  far clip plane: 5000
-  field of view: 40
+  far clip plane: 100
+  field of view: 50
   orthographic: 0
   orthographic size: 5
   m_Depth: 0
@@ -226,10 +226,10 @@ MonoBehaviour:
   m_LookAt: {fileID: 4350901069862096}
   m_Follow: {fileID: 4350901069862096}
   m_Lens:
-    FieldOfView: 40
+    FieldOfView: 50
     OrthographicSize: 10
     NearClipPlane: 0.1
-    FarClipPlane: 5000
+    FarClipPlane: 100
     Dutch: 0
     LensShift: {x: 0, y: 0}
   m_Transitions:
@@ -258,10 +258,13 @@ MonoBehaviour:
   m_UpdateMethod: 1
   m_Targets:
   - target: {fileID: 0}
-    weight: 20
-    radius: 0
+    weight: 10
+    radius: 1
   - target: {fileID: 0}
-    weight: 20
+    weight: 10
+    radius: 1
+  - target: {fileID: 0}
+    weight: 1
     radius: 0
 --- !u!114 &114689355670965544
 MonoBehaviour:

@@ -113,8 +113,11 @@ public class Charge : MonoBehaviour {
 
     private void OnCollisionStay(Collision collision)
     {
+        if (!m_tObject || collision.gameObject.CompareTag("Terrain"))
+        {
+            return;
+        }
         m_rBody = GetComponent<Rigidbody>();
-
         if (m_rBody.velocity.magnitude < 0.39f)
         {
             m_isChargeFinished = true;

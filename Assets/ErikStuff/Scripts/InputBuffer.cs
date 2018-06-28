@@ -74,21 +74,20 @@ public class InputBuffer : MonoBehaviour {
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Terrain"))
+        if(!collision.gameObject.CompareTag("Terrain"))
         {
-            return;
+            onClash = true;
         }
-        onClash = true;
+        
     }
     private void OnCollisionExit(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Terrain"))
+        if (!collision.gameObject.CompareTag("Terrain"))
         {
-            return;
+            onClash = false;
+            onAttack = false;
+            SmashCounter = 0.0f;
         }
-        onClash = false;
-        onAttack = false;
-        SmashCounter = 0.0f;
     }
 
     // Update is called once per frame
