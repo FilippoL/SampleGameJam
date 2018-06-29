@@ -50,7 +50,7 @@ public class HeadButt : MonoBehaviour {
         DoHeadbuttExplosion(m_enable);
     }
 
-    private void DoHeadbuttExplosion(bool enable = false)
+    private void DoHeadbuttExplosion(bool enable = true)
     {
         if (enable)
         {
@@ -63,8 +63,6 @@ public class HeadButt : MonoBehaviour {
             m_tBody.AddExplosionForce((force * m_explosionModifier) * 10.0f, m_rBody.position, 1.0f);
 
             GetComponent<Animator>().SetBool("isPushing", false);
-
-            enable = false;
 
             this.enabled = false;
         }

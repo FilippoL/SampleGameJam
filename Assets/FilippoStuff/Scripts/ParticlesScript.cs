@@ -3,19 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ParticlesScript : MonoBehaviour {
-
     /// <summary>
     /// What particle system to use
     /// </summary>
-    private ParticleSystem m_parts;
+    static private ParticleSystem m_parts;
 
     /// <summary>
     /// Multiplier for intesity
     /// </summary>
-    private int m_intensifier;
+    private float m_intensifier;
 
 
-    public int Intensifier
+    public float Intensifier
     {
         get
         {
@@ -27,21 +26,39 @@ public class ParticlesScript : MonoBehaviour {
             m_intensifier = value;
         }
     }
-    
 
-    void Start () {
-        m_parts = GetComponentInChildren<ParticleSystem>();
+    public ParticleSystem Parts
+    {
+        get
+        {
+            return m_parts;
+        }
+
+        set
+        {
+            m_parts = value;
+        }
+    }
+
+    void Start()
+    {
+
     }
 
     // Update is called once per frame
-    void Update () {
+    void Update()
+    {
+        m_parts = GetComponentInChildren<ParticleSystem>();
+        if (m_parts == null)
+        {
+            return;
+        }
 
-        var main = m_parts.main;
 
-        //main.maxParticles = m_intensifier;
-        //main.startSpeed = m_intensifier;
+        var main = Parts.main;
 
-        main.maxParticles = (int)(GetComponent<PowerBarScript>().Completeness * 750); 
-        main.startSpeed = (int)(GetComponent<PowerBarScript>().Completeness);
+
+        main.maxParticles = (int)m_intensifier * 250;
+        
     }
 }

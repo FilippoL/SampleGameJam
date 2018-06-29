@@ -88,6 +88,7 @@ public class InputBuffer : MonoBehaviour {
             onAttack = false;
             SmashCounter = 0.0f;
         }
+
     }
 
     // Update is called once per frame
@@ -125,6 +126,7 @@ public class InputBuffer : MonoBehaviour {
     {
         while (_NextState == null)
         {
+            animator.SetFloat("Force", 1.0f);
             _NextState = null;
             yield return null;
         }
@@ -137,6 +139,7 @@ public class InputBuffer : MonoBehaviour {
     IEnumerator COOLDOWN()
     {
         _NextState = null;
+        GetComponent<ParticlesScript>().Intensifier = 0;
 
         while (_NextState == null)
         {
@@ -168,6 +171,7 @@ public class InputBuffer : MonoBehaviour {
     {
         Debug.Log("Hit");
         scriptHeadbutt.m_enable = true;
+        animator.SetFloat("Force", 1.0f);
     }
 
     /// <summary>
@@ -184,6 +188,9 @@ public class InputBuffer : MonoBehaviour {
             Overtime += Time.deltaTime;
             animator.SetFloat("Force", SmashCounter/5.0f);
 
+            GetComponent<ParticlesScript>().Intensifier += 0.15f;
+
+
             if (SmashCounter < 0.0f)
             {
                 SmashCounter = 0.0f;
@@ -198,7 +205,7 @@ public class InputBuffer : MonoBehaviour {
                 {
                     if (scriptCharge)
                     {
-                        scriptCharge.m_force = SmashCounter;
+                        scriptCharge.m_force = SmashCounter*5.0f;
                     }
                     if (animator)
                     {
@@ -223,7 +230,6 @@ public class InputBuffer : MonoBehaviour {
                 _NextState = COOLDOWN();
 
             }
-
             yield return null;
         }
     }
